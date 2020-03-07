@@ -8,7 +8,10 @@ import { HomeComponent } from './components/home/home.component';
 // Array de rutas
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: '**', component: HomeComponent }
+  {
+    path: '**',
+    loadChildren: () => import('./error-pages/error-pages.module').then(x => x.ErrorPagesModule)
+  }
 ];
 
 // Exportar el modulo de rutas
